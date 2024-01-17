@@ -4,7 +4,8 @@ This is a sample Node.js and React.js application that demonstrates how to build
 
 The application provides lodging recommendations for travelers visiting San Francisco.
 
-[PHOTO OF APPLICATION]
+<img width="1140" alt="Vertex AI Lodgings Application" src="https://github.com/YugabyteDB-Samples/yugabytedb-google-vertexai-lodging-service/assets/2041330/db4ad2d4-44d4-4a5e-af97-061e82848997">
+
 
 Using Google Vertex AI, text embeddings (a vectorized representation of the data) are generated for each listing description and stored in YugabyteDB, using the PostgreSQL `pgvector` extension. The user's prompt is similarly converted to text embeddings using Google Vertex AI and subsequently used to execute a similarity search in YugabyteDB, finding properties with descriptions related to the user's prompt.
 
@@ -134,8 +135,4 @@ Execute the `embeddingsGenerator.js` script to generate embeddings in Google Ver
 
     *Room for 1 in downtown SF, walking distance to Moscone Center.*
 
-## Wrapping Up
-
-Building generative AI applications using YugabyteDB is easily achieved with the help of PostgreSQL's pgvector extension and Google Vertex AI. If you're interested in more tutorials on the topic of generative AI, check out: 
-
-[Link to Azure OpenAI Tutorial]
+<img width="1145" alt="Vertex AI Lodgings App with responses" src="https://github.com/YugabyteDB-Samples/yugabytedb-google-vertexai-lodging-service/assets/2041330/979cf7ce-f3dd-4f6a-ae79-1c5d60f38807">
