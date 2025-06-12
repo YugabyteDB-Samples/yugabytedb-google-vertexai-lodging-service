@@ -61,6 +61,15 @@ App.get("/api/recommendations", getEmbeddings, async (req, res) => {
 
     if (!embeddings) throw "No embeddings supplied.";
 
+    // Adding logs to get the query for `ANALYZE EXPLAIN` 
+    // Code piece to be removed before merging
+    console.log("\n========== QUERY START ==========");
+    console.log(
+      "SELECT name, description, price, 1 - (description_embedding <=> " + "\'" + [embeddings] + "\'" + ") as similarity " +
+      "FROM airbnb_listing WHERE 1 - (description_embedding <=> " + "\'" + [embeddings] + "\'" + ") > 0.7 ORDER BY similarity DESC LIMIT 5"
+    );
+    console.log("========== QUERY END ==========\n");
+
     const dbRes = await pool.query(
       "SELECT name, description, price, 1 - (description_embedding <=> $1) as similarity " +
         "FROM airbnb_listing WHERE 1 - (description_embedding <=> $1) > 0.7 ORDER BY similarity DESC LIMIT 5",
